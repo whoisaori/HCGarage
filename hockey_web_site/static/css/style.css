@@ -1,0 +1,482 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+	font-family: 'PF Centro Sans Pro';
+  src: url(../fonts/PFCentroSansPro-Regular.ttf);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  /* font-family: "PF Centro Sans Pro", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: white;
+  background-color: white; */
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: "PF Centro Sans Pro", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #f1f2f3;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img{
+  pointer-events: none;
+  user-select: none;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 1.29;
+  color: #171717;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  padding-left: 70px;
+}
+
+/* Header styles */
+.nav-bar {
+  background-color: #29513e;
+  max-height: 80px;
+}
+
+.flex-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Кнопка выпадающего списка */
+.dropbtn {
+  background-color: #29513e;
+  color: #f9f9f9;
+  margin: 0px 15px 0px 25px;
+  padding: 28px 0px 28px 0px;
+  font-size: 14px;
+  border: none;
+  border-bottom: #29513e 3px solid;
+  }
+
+  /* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin: 0px 15px 0px 25px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5%;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 5%;
+  }
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdown:hover .dropbtn {
+  /* background-color: #3e8e41; */
+  border-bottom: #2a944d 3px solid;
+  }
+
+.last_news{
+  font-size: 35px;
+  line-height: 1.29;
+  color: #171717;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.card-media_block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-media{
+  width: 288.75px;
+  min-height: 370px;
+  background-color: white;
+  position: relative;
+  border-top: #29513e 3px solid;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+}
+
+.card-media_link {
+  position: absolute;
+  width: calc(100%);
+  height: calc(100%);
+  z-index: 2;
+}
+
+.card-media_link:hover + .card-media_img img{
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+
+.card-media_link:not(:hover) + .card-media_img img{
+  transition: transform 0.6s ease;
+  transform: scale(1);
+}
+
+.card-media_link:hover + .card-media_bottom .description {
+  color: red;
+}
+
+.card-media_img {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-media_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-media_bottom{
+  min-height: 180px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.theme-name{
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.description{
+  width: 100%;
+  margin: 0;
+  padding-bottom: 15px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: #111;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+}
+
+.news-date{
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  margin: 0 0 17px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  color: #999;
+}
+
+.other-news{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.news-btn{
+  position: relative;
+  width: 320px;
+  margin: 0 auto;
+  padding: 17px 0 14px;
+  background-color: #29513e;
+  border: none;
+
+  font-family: "PF Centro Sans Pro", Arial, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  color: white;
+
+  transition: box-shadow 0.4s ease;
+}
+
+.news-btn:hover{
+  box-shadow: 0 0 0 2px #29513e;
+}
+
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #29513e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.back-to-top.show {
+  display: block;
+}
+
+.footer{
+  margin-top: 95px;
+  background-color: #363636;
+  height: 100%;
+}
+
+.footer-info{
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-block{
+  display: flex;
+  flex-direction: column;
+}
+
+.left-block .logo{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right-block{
+  display: flex;
+  align-items: center;
+}
+
+.social-link{
+  margin-right: 10px;
+}
+
+.phone{
+  margin-right: 20px;
+}
+
+.phone:hover{
+  color: #2a944d;
+}
+
+.email:hover{
+  color: #2a944d;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 8px 16px;
+  margin: 0 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #ccc;
+}
+
+.pagination-btn.active {
+  background-color: #29513e;
+  color: #fff;
+}
+
+.pagination-btn.active:hover {
+  background-color: #29513e;
+}
+
+.card-media:hover .description{
+  color: #27734b;
+}
+
+.heading{
+  margin: 50px 0 20px 0px;
+  font-size: 35px;
+  line-height: 1.29;
+  color: #171717;
+  font-weight: bold;
+}
+.cards{
+  margin: 0 0 83px;
+}
+.cards__title{
+  position: relative;
+  margin: 0 0 22px;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666;
+}
+.cards__wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.card-player{
+  position: relative;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  width: 290px;
+  margin: 0 10px 15px 0;
+  font-family: "PF Centro Sans Pro", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #111;
+  text-decoration: none;
+  box-shadow: 0 1px 1px 1px #e5e5e5;
+}
+.card-player__image{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 230px;
+  background-color: #000;
+  overflow: hidden;
+}
+.card-player__image:before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #29513e;
+}
+.card-player__image img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.card-player__info{
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: calc(100% - 40px);
+  height: auto;
+  padding: 28px 20px 27px;
+  background-color: #fff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.card-player__name{
+  margin: 0 0 10px;
+  padding-right: 40px;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 700;
+  transition: ease-in-out 0.3s;
+}
+.card-player__number{
+  position: absolute;
+  top: 30px;
+  right: 16px;
+  font-size: 50px;
+  line-height: 40px;
+  font-weight: 300;
+  letter-spacing: -3px;
+  color: #e5e5e5;
+}
+.card-player:hover .card-player__name{
+  color: #27734b;
+}
+
+.body{
+  flex: 1;
+}

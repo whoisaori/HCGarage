@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{%endblock%}
+
+{% block content %}
+<div class="body">
+    <div class="container">
+      <h3 class="last_news">{{ post.title }}</h3>
+      <p>{{ post.content|linebreaksbr  }}<p>
+      <div class="other-news">
+        <a class="news-btn" href="{% url 'news' %}">
+          <p>Вернуться к новостям</p>
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="body">
+    <div class="container">
+      <h2 class="last_news">Последние новости</h2>
+      <div class="card-media_block">
+        {% for p in posts %}
+            <div class="card-media">
+            <a href="{{ p.get_absolute_url }}" class="card-media_link"></a>
+            <div class="card-media_img">
+                <img src="{{ p.photo.url }}" alt="">
+            </div>
+            <div class="card-media_bottom">
+                <p class="theme-name">{{ p.cat }}</p>
+                <p class="description">{{ p.title }}</p>
+                <p class="news-date">{{ p.time_create|date:'d E Y' }}</p>
+            </div>
+            </div>
+        {% endfor %}
+      </div>
+      <div class="other-news">
+        <a class="news-btn" href="{% url 'news' %}">
+          <p>Больше новостей</p>
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock%}

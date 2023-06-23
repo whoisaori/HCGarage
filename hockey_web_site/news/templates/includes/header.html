@@ -1,0 +1,41 @@
+{% load static %}
+<a href="#" class="back-to-top">Вернуться наверх</a>
+<div class="header">
+<div class="nav-bar">
+    <div class="container">
+    <div class="flex-block">
+        <a href="{% url 'index' %}" class="logo"><img src="{% static 'images/logo.png' %}" alt="" width="100px" height="80px"></a>
+        <div class="dropdown">
+        <button class="dropbtn">КЛУБ</button>
+        <div class="dropdown-content">
+        <a href="#">О клубе</a>
+        <a href="#">История клуба</a>
+        <a href="#">Руководство</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">КОМАНДА</button>
+        <div class="dropdown-content">
+            <a href="{% url 'players' %}">Игроки</a>
+            <a href="#">Тренерский состав</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">НОВОСТИ</button>
+        <div class="dropdown-content">
+            <a href="{% url 'news' %}">Все новости</a>
+            <a href="{% url 'club_news' %}">Новости клуба</a>
+        </div>
+    </div>
+        <!-- <div class="dropdown">
+        <button class="dropbtn">МЕДИА</button>
+        <div class="dropdown-content">
+            <a href="#">Ссылка 1</a>
+            <a href="#">Ссылка 2</a>
+            <a href="#">Ссылка 3</a>
+        </div>
+        </div> -->
+    </div>
+    </div>
+</div>
+</div>

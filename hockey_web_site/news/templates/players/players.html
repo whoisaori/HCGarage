@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="body">
+    <div class="container">
+        <div class="heading">Состав команды</div>
+        <div class="cards">
+            {% for cat in cats%}
+                <div class="cards__title">
+                    {{ cat.name }}
+                </div>
+                {% for player in cat.players_set.all %}
+                    <div class="cards__wrapper">
+                        <a href="#" class="card-player">
+                            <picture class="card-player__image">
+                                <img src="{{ player.photo.url }}">
+                            </picture>
+                            <div class="card-player__info">
+                                <div class="card-player__wrapper">
+                                    <div class="card-player__name">
+                                        {{ player.name }}<p> </p>{{ player.surname }}
+                                    </div>
+                                    <div class="card-player__country">
+                                        {{ player.country }}
+                                    </div>
+                                    <div class="card-player__number">
+                                        {{ player.number }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

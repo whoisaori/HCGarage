@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Все новости{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="last_news">Новости</h2>
+    <div class="card-media_block">
+        {% for post in page_obj %}
+            <div class="card-media">
+                <a href="{{ post.get_absolute_url }}" class="card-media_link"></a>
+                <div class="card-media_img">
+                    <img src="{{ post.photo.url }}" alt="">
+                </div>
+                <div class="card-media_bottom">
+                    <p class="theme-name">{{ post.cat }}</p>
+                    <p class="description">{{ post.title }}</p>
+                    <p class="news-date">{{ post.time_create|date:'d E Y' }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+      <a href="?page={{ num }}" class="pagination-btn active">{{ num }}</a>
+    {% else %}
+      <a href="?page={{ num }}" class="pagination-btn">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">Следующая</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-btn">&raquo;</a>
+    {% endif %}
+</div>
+{% endblock %}
